@@ -17,6 +17,6 @@ before_install:
 install:
   - cargo install tectonic
 script:
-  - tectonic
+  - tectonic sample-handout.tex
 after-script:
   - ls -lah *.pdf
