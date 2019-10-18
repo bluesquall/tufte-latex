@@ -1,5 +1,4 @@
 language: minimal
 services: docker
 script:
-  - docker pull bluesquall/tex:void
-  - docker run --rm -v `pwd`:/tmp -w /tmp bluesquall/tex:tufte tectonic
+  - docker run --rm -v `pwd`:/tmp -w /tmp bluesquall/tex:void tectonic
