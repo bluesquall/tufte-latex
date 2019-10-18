@@ -3,6 +3,8 @@ Hi,
 Welcome to the beginnings of Tufte LaTeX package to help you
 produce Tufte-style handouts, reports, and notes.
 
+[![Build Status](https://travis-ci.org/bluesquall/tufte-latex.svg?branch=master)](https://travis-ci.org/bluesquall/tufte-latex)
+
 ## Quick Start
 
 Try typesetting `sample-handout.tex` with the following sequence
