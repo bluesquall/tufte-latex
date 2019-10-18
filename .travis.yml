@@ -8,8 +8,8 @@ jobs:
     - rust: nightly
   fast_finish: true
 cache:
-  - apt
-  - cargo
+  apt: true
+  cargo: true
   directories:
     - $HOME/.cache/Tectonic
 before_install:
