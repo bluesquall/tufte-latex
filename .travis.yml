@@ -1,4 +1,22 @@
-language: minimal
-services: docker
+language: rust
+rust:
+  - stable
+  - beta
+  - nightly
+jobs:
+  allow_failures:
+    - rust: nightly
+  fast_finish: true
+cache:
+  - apt
+  - cargo
+  directories:
+    - $HOME/.cache/Tectonic
+before_install:
+  - sudo apt-get install -y curl
+install:
+  - cargo install tectonic
 script:
-  - docker run --rm -v `pwd`:/tmp -w /tmp bluesquall/tex:void tectonic sample-handout.tex
+  - tectonic
+after-script:
+  - ls -lah *.pdf
