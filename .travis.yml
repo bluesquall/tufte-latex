@@ -1,4 +1,4 @@
 language: minimal
 services: docker
 script:
-  - docker run --rm -v `pwd`:/tmp -w /tmp bluesquall/tex:void tectonic *.tex
+  - docker run --rm -v `pwd`:/tmp -w /tmp bluesquall/tex:void tectonic sample-handout.tex
