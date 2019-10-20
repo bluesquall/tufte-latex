@@ -12,17 +12,19 @@ cache:
   cargo: true
   directories:
     - $HOME/.cache/Tectonic
-before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y --no-install-recommends \
-      ca-certificates \
-      curl \
-      libfontconfig1-dev \
-      libgraphite2-dev \
-      libharfbuzz-dev \
-      libicu-dev \
-      libssl-dev \
-      zlib1g-dev
+dist: bionic
+addons:
+  apt:
+    update: true
+    packages:
+      - ca-certificates
+      - curl
+      - libfontconfig1-dev
+      - libgraphite2-dev
+      - libharfbuzz-dev
+      - libicu-dev
+      - libssl-dev
+      - zlib1g-dev
 install:
   - cargo install tectonic
 script:
