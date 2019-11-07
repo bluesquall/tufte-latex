@@ -1,4 +1,33 @@
-language: minimal
-services: docker
+language: rust
+rust:
+  - stable
+  - beta
+  - nightly
+jobs:
+  allow_failures:
+    - rust: nightly
+  fast_finish: true
+cache:
+  apt: true
+  cargo: true
+  directories:
+    - $HOME/.cache/Tectonic
+dist: bionic
+addons:
+  apt:
+    update: true
+    packages:
+      - ca-certificates
+      - curl
+      - libfontconfig1-dev
+      - libgraphite2-dev
+      - libharfbuzz-dev
+      - libicu-dev
+      - libssl-dev
+      - zlib1g-dev
+install:
+  - if [[ $(cargo install --list | grep ^tectonic ) ]]; then echo "using cached tectonic" else cargo install tectonic fi
 script:
-  - docker run --rm -v `pwd`:/tmp -w /tmp bluesquall/tex:void tectonic sample-handout.tex
+  - tectonic sample-handout.tex
+after-script:
+  - ls -lah *.pdf
