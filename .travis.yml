@@ -26,7 +26,7 @@ addons:
       - libssl-dev
       - zlib1g-dev
 install:
-  - cargo install tectonic
+  - if [[ $(cargo install --list | grep ^tectonic ) ]]; then echo "using cached tectonic" else cargo install tectonic fi
 script:
   - tectonic sample-handout.tex
 after-script:
